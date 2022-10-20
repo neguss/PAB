@@ -62,6 +62,7 @@ class MainActivity : Activity() {
                 for (i in chk_list.indices) {
                     out.appendText(chk_list[i].toString()+",")
                 }
+                Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+"Протокол "+npp.text+"_от_"+curr_dt.replace('/','.')+".csv", Toast.LENGTH_SHORT)
             }
             else {
                 Toast.makeText(this, "Нет доступа к внутреннему хранилищу", Toast.LENGTH_SHORT)
