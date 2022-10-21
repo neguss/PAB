@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import java.io.File
 import android.content.pm.PackageManager
 import android.os.Build
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
@@ -29,7 +30,7 @@ class MainActivity : Activity() {
         val subdivision=findViewById<EditText>(R.id.subdivision_value)
         val site=findViewById<EditText>(R.id.site_value)
         val job=findViewById<EditText>(R.id.job_value)
-        val dt=findViewById<EditText>(R.id.date_value)
+        val dt=findViewById<TextView>(R.id.date_value)
         val watchers=findViewById<EditText>(R.id.watchers_value)
         val tm=findViewById<EditText>(R.id.time_value)
         val start_button=findViewById<Button>(R.id.start_btn)
@@ -37,7 +38,7 @@ class MainActivity : Activity() {
         val chk_activity=Intent(this,CheckActivity::class.java)
 
         var curr_dt=LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString()
-
+        dt.text=curr_dt
         start_button.setOnClickListener{
             startActivityForResult(chk_activity,1)
         }
