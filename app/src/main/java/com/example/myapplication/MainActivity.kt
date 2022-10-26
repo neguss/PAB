@@ -3,15 +3,12 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
 import android.content.Intent
-import android.widget.EditText
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import java.io.File
 import android.content.pm.PackageManager
 import android.os.Build
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
@@ -27,6 +24,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val npp=findViewById<EditText>(R.id.npp_value)
+        val fio=findViewById<AutoCompleteTextView>(R.id.pers_value)
         val subdivision=findViewById<EditText>(R.id.subdivision_value)
         val site=findViewById<EditText>(R.id.site_value)
         val job=findViewById<EditText>(R.id.job_value)
@@ -36,8 +34,13 @@ class MainActivity : Activity() {
         val start_button=findViewById<Button>(R.id.start_btn)
         val save_button=findViewById<Button>(R.id.Save)
         val chk_activity=Intent(this,CheckActivity::class.java)
-
+        var pers= arrayOf("Басов С.А.","Божко Д.В","Бойко Д.В","Большаков В.В.","Ворыпаев С.В","Егупов Н.А.","Зелепукин Д.А.","Илюшов И.Н.","Кайряк А.М.","Королев А.М.","Кузнецов А.С.","Куницин С.Н.","Левин А.А.","Логач Е.С.","Лямин П.И.","Миндагалиев Р.С.","Морозов Р.А.","Морхов Д.В.","Никитенко А.А.","Никитин А.А.","Потапов А.В.","Рудов М.В.","Скворцов И.А.","Смирнов Р.В.","Сухов В.А.","Халеев С.И.","Черпита О.В.","Чурилов Э.В.","Шацких С.А.")
+        var auditorlvl= arrayOf(1,2,2,3,3,3,3,3,3,3,2,3,2,1,3,3,3,3,2,2,3,3,2,3,3,3,3,1,3)
+        var auditor= arrayOf("Начальник филиала","Ведущий инженер-энергетик","Старший мастер по ремонту скважин (капитальному, подземному)","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Механик","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Начальник цеха","Мастер по ремонту (капитальному,подземному)","Начальник базы","Заместитель главного инженера по ОТ, ПБ,П и ООС","Инженер по КИПиА","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Старший мастер по ремонту скважин (капитальному, подземному)","Старший мастер по ремонту скважин (капитальному, подземному)","Старший механик","Старший механик","Ведущий инженер по ремонту","Мастер по ремонту","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Мастер по ремонту (капитальному,подземному)","Главный инженер","Мастер по ремонту (капитальному,подземному)")
+        var persadapt=ArrayAdapter(this,com.google.android.material.R.layout.mtrl_auto_complete_simple_item,pers)
+        fio.setAdapter(persadapt)
         var curr_dt=LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString()
+
         dt.text=curr_dt
         start_button.setOnClickListener{
             startActivityForResult(chk_activity,1)
@@ -53,6 +56,10 @@ class MainActivity : Activity() {
                     out.createNewFile()
                 }
                 out.appendText(""+npp.text +",")
+                out.appendText(""+fio.text+",")
+                var chosenone=pers.indexOf(fio.text.toString())
+                out.appendText(""+auditor[chosenone]+",")
+                out.appendText(""+auditorlvl[chosenone]+",")
                 out.appendText(""+subdivision.text+",")
                 out.appendText(""+site.text+",")
                 out.appendText(""+job.text+",")
