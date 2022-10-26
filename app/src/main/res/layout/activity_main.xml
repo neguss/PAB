@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-black"
         android:text="№ по графику:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +27,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Подразделение:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/npp_value" />
 
@@ -36,6 +39,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Участок:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subdivision_value" />
 
@@ -47,6 +51,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Работа:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/site_value" />
 
@@ -58,6 +63,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Дата:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_value" />
 
@@ -69,6 +75,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Кол-во наблюдателей"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_value" />
 
@@ -80,6 +87,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Время:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/watchers_value" />
 
@@ -91,6 +99,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/npp_label" />
@@ -103,6 +112,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subdivision_label" />
@@ -115,6 +125,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/site_label" />
@@ -127,6 +138,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_label" />
@@ -139,6 +151,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Date_label" />
@@ -151,6 +164,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/watchers_label" />
@@ -163,6 +177,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_label" />
@@ -173,8 +188,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:autoText="false"
         android:backgroundTint="@color/corporate_blue"
         android:text="Начать"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_value" />
 
@@ -186,6 +203,7 @@
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/corporate_blue"
         android:text="Схоронить"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_value" />
 

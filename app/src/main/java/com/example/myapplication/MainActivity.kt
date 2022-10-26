@@ -45,23 +45,26 @@ class MainActivity : Activity() {
 
         save_button.setOnClickListener{
             if(ContextCompat.checkSelfPermission(applicationContext,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED) {
-                val out = File("/storage/emulated/0/Download/"+"Протокол "+npp.text+"_от_"+curr_dt.replace('/','.')+".csv")
+                val out = File("/storage/emulated/0/Download/"+"Протокол "+npp.text+"_от_"+curr_dt.replace('/','.')+".txt")
                 if (!out.exists())
                     out.createNewFile()
                 else {
                     out.delete()
                     out.createNewFile()
                 }
-                out.appendText("Номер\t\t"+npp.text+"\n")
-                out.appendText("Подразделение\t\t"+subdivision.text+"\n")
-                out.appendText("Участок\t\t"+site.text+"\n")
-                out.appendText("Выполняемая работа\t\t"+job.text+"\n")
-                out.appendText("Дата\t\t"+dt.text+"\n")
-                out.appendText("Кол-во наблюдателей\t\t"+watchers.text+"\n")
-                out.appendText("Время\t\t"+tm.text+"\n")
+                out.appendText(""+npp.text +",")
+                out.appendText(""+subdivision.text+",")
+                out.appendText(""+site.text+",")
+                out.appendText(""+job.text+",")
+                out.appendText(""+dt.text+",")
+                out.appendText(""+watchers.text+",")
+                out.appendText(""+tm.text+",")
 
                 for (i in chk_list.indices) {
-                    out.appendText(chk_list[i].toString()+",")
+                    if(i!=chk_list.size-1)
+                        out.appendText(chk_list[i].toString()+",")
+                    else
+                        out.appendText(chk_list[i].toString())
                 }
                 Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+"Протокол "+npp.text+"_от_"+curr_dt.replace('/','.')+".csv", Toast.LENGTH_SHORT)
             }
