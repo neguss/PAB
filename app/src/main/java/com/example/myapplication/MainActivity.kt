@@ -36,7 +36,9 @@ class MainActivity : Activity() {
         val tm=findViewById<EditText>(R.id.time_value)
         val start_button=findViewById<Button>(R.id.start_btn)
         val save_button=findViewById<Button>(R.id.Save)
+        val add_button=findViewById<ImageView>(R.id.AddPersButton)
         val chk_activity=Intent(this,CheckActivity::class.java)
+        val add_activity=Intent(this,auditors::class.java)
         var output:String=""
         var pers= arrayOf("Басов С.А.","Божко Д.В","Бойко Д.В","Большаков В.В.","Ворыпаев С.В","Егупов Н.А.","Зелепукин Д.А.","Илюшов И.Н.","Кайряк А.М.","Королев А.М.","Кузнецов А.С.","Куницин С.Н.","Левин А.А.","Логач Е.С.","Лямин П.И.","Миндагалиев Р.С.","Морозов Р.А.","Морхов Д.В.","Никитенко А.А.","Никитин А.А.","Потапов А.В.","Рудов М.В.","Скворцов И.А.","Смирнов Р.В.","Сухов В.А.","Халеев С.И.","Черпита О.В.","Чурилов Э.В.","Шацких С.А.")
         var auditorlvl= arrayOf(1,2,2,3,3,3,3,3,3,3,2,3,2,1,3,3,3,3,2,2,3,3,2,3,3,3,3,1,3)
@@ -45,6 +47,8 @@ class MainActivity : Activity() {
         fio.setAdapter(persadapt)
         var curr_dt=LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString()
         ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),12 )
+        val db=DBHelper(this,null)
+        val auditor_db=db.writableDatabase
         var db_source:String=Environment.DIRECTORY_DOCUMENTS
 
         dt.text=curr_dt
@@ -84,6 +88,9 @@ class MainActivity : Activity() {
                 ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),12 )
             }
 
+        }
+        add_button.setOnClickListener{
+            startActivityForResult(add_activity,1)
         }
 
 

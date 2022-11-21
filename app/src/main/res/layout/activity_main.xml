@@ -231,4 +231,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pers_label" />
 
+    <ImageView
+        android:id="@+id/AddPersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@android:drawable/ic_menu_add"
+        app:layout_constraintBottom_toBottomOf="@+id/pers_label"
+        app:layout_constraintStart_toEndOf="@+id/pers_label"
+        app:layout_constraintTop_toTopOf="@+id/pers_label" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
