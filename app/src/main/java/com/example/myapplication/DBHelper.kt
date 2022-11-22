@@ -32,17 +32,10 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?):
         db.close()
     }
 
-    fun getObject(): Cursor? {
+    fun get_all(): Cursor? {
 
         val db = this.readableDatabase
-        return db.rawQuery("SELECT * FROM OBJECT", null)
-
-    }
-
-    fun getRequirement(obj_id:String): Cursor? {
-
-        val db = this.readableDatabase
-        return db.rawQuery("SELECT REQ_NAME FROM REQUIREMENTS WHERE OBJ_ID="+obj_id, null)
+        return db.rawQuery("SELECT * FROM "+ TABLE_NAME, null)
 
     }
     fun getPers(): Cursor? {
