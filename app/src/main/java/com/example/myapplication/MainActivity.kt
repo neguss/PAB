@@ -67,7 +67,10 @@ class MainActivity : Activity() {
                 }
 
                 var chosenone=pers.indexOf(fio.text.toString())
-                output=""+npp.text +";"+fio.text+";"+auditor[chosenone]+";"+auditorlvl[chosenone]+";"+subdivision.text+";"+site.text+";"+job.text+";"+dt.text+";"+watchers.text+";"+tm.text+";"
+                if (chosenone>0)
+                    output=""+npp.text +";"+fio.text+";"+auditor[chosenone]+";"+auditorlvl[chosenone]+";"+subdivision.text+";"+site.text+";"+job.text+";"+dt.text+";"+watchers.text+";"+tm.text+";"
+                else
+                    output=""+npp.text +";"+fio.text+";"+"Должность"+";"+"Уровень"+";"+subdivision.text+";"+site.text+";"+job.text+";"+dt.text+";"+watchers.text+";"+tm.text+";"
 
                 for (i in chk_list.indices) {
                     if(i!=chk_list.size-1){
