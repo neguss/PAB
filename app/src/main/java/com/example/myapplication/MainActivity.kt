@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
+import android.app.Notification
 import android.os.Bundle
 import android.content.Intent
 import androidx.core.content.ContextCompat
@@ -10,6 +11,7 @@ import android.content.pm.PackageManager
 import android.icu.text.SymbolTable
 import android.os.Build
 import android.os.Environment
+import android.os.Message
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -84,7 +86,7 @@ class MainActivity : Activity() {
                     testt[i]=(testt[i]+1).toByte()
                 }
                 out.appendText(output)
-                Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+npp.text+"_от_"+curr_dt.replace('/','.'), Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+npp.text+"_от_"+curr_dt.replace('/','.'), Toast.LENGTH_LONG)
             }
             else {
                 Toast.makeText(this, "Нет доступа к внутреннему хранилищу", Toast.LENGTH_SHORT)

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
+    android:scrollbars="vertical"
     app:layout_scrollFlags="scroll"
     tools:context=".MainActivity">
 
@@ -203,7 +204,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/corporate_blue"
-        android:text="Схоронить"
+        android:text="Сохранить отчёт"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_value" />
@@ -241,5 +242,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/pers_label"
         app:layout_constraintStart_toEndOf="@+id/pers_label"
         app:layout_constraintTop_toTopOf="@+id/pers_label" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
