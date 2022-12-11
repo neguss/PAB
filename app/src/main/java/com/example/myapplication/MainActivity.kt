@@ -8,16 +8,21 @@ import android.content.Intent
 import androidx.core.content.ContextCompat
 import java.io.File
 import android.content.pm.PackageManager
+import android.icu.text.DateFormat
 import android.icu.text.SymbolTable
 import android.os.Build
 import android.os.Environment
 import android.os.Message
+import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
+import java.text.Format
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Date
 import kotlin.math.cos
 
 class MainActivity : Activity() {
@@ -39,6 +44,9 @@ class MainActivity : Activity() {
         val start_button=findViewById<Button>(R.id.start_btn)
         val save_button=findViewById<Button>(R.id.Save)
         val add_button=findViewById<ImageView>(R.id.AddPersButton)
+        val dt_pick=findViewById<ConstraintLayout>(R.id.date_layout)
+        val dtpick=findViewById<DatePicker>(R.id.DatePicker)
+        val dt_button=findViewById<Button>(R.id.date_button)
         val chk_activity=Intent(this,CheckActivity::class.java)
         val add_activity=Intent(this,auditors::class.java)
         var output:String=""
@@ -86,16 +94,28 @@ class MainActivity : Activity() {
                     testt[i]=(testt[i]+1).toByte()
                 }
                 out.appendText(output)
-                Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+npp.text+"_от_"+curr_dt.replace('/','.'), Toast.LENGTH_LONG)
+                Toast.makeText(this, "Отчет успешно сохранен по пути"+"/storage/emulated/0/Download/"+npp.text+"_от_"+curr_dt.replace('/','.'), Toast.LENGTH_LONG).show()
             }
             else {
-                Toast.makeText(this, "Нет доступа к внутреннему хранилищу", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Нет доступа к внутреннему хранилищу", Toast.LENGTH_SHORT).show()
                 ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),12 )
             }
 
         }
         add_button.setOnClickListener{
             startActivityForResult(add_activity,1)
+        }
+
+        dt.setOnClickListener {
+            dt_pick.visibility=View.VISIBLE
+        }
+
+        dt_button.setOnClickListener{
+            val d=dtpick.dayOfMonth
+            val m=dtpick.month+1
+            val y=dtpick.year
+            dt.text=d.toString()+"/"+m.toString()+"/"+y.toString()
+            dt_pick.visibility=View.INVISIBLE
         }
 
 
@@ -107,7 +127,7 @@ class MainActivity : Activity() {
             return
         if (resultCode==2 && requestCode==1){
             chk_list= data.getByteArrayExtra("results")!!
-            Toast.makeText(this,"done",Toast.LENGTH_SHORT)
+            Toast.makeText(this,"done",Toast.LENGTH_SHORT).show()
         }
     }
 }
